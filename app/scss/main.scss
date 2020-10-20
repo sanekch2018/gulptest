@@ -1,0 +1,200 @@
+@import 'mixin';
+@import 'config';
+
+.wrapper {
+    max-width: 1200px;
+}
+
+// START HEADER 
+.header {
+   background: $accent;
+    .navbar {
+        padding: 20px 20px 20px 40px !important;
+        height: 100px;
+        &-toggler {
+            background: $white !important;
+            width: 54px !important;
+            height: 48px !important;
+            &-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28126, 0, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")  !important;
+            }
+        } 
+        &-brand {
+            font-size: 32px;
+            margin-left: 25px;
+        }
+        &-span {
+            font-size: 20px; 
+            font-weight: 600;
+        }             
+    }
+} 
+// END HEADER
+
+// START CONTENT
+.main {
+    padding: 1px 0px 0px 0px;
+}
+
+aside {
+    min-width: 300px;
+    max-width: 300px;
+    background: $asidebg;
+    font-size: 18px;
+    transition: all 0.3s;
+    @include box-shadow(10px -1px 12px -1px rgba(0, 0, 0, 0.3));
+    z-index: 999;
+    &.active {
+        margin-left: -300px;
+    } 
+    nav {
+        margin: 40px 39px 40px 39px;
+    }
+}    
+
+.wrap {
+    width: 100%;  
+    background: $wrapbg;
+    position: relative;
+    &::before, &::after {
+        content: ''; 
+        position: absolute; 
+        bottom: 0; 
+        left: 0;
+        width: 100%; 
+        height: 7px;
+        @include gradient-directional(rgb(0,0,0) 0%, rgba(0,0,0,0) 100%, to top);
+        opacity: 0.251;
+        z-index: 1; 
+    }
+    &__content {
+        &-left, a {
+            max-width: 235px; 
+            min-width: 235px;
+            font-size: 20px;
+            font-weight: 500;
+            color: $accent;
+            &:not(a) { border-right: 4px solid $accent; }
+            .media { 
+                padding: 16px; 
+                @include one() { position:-webkit-sticky; position: sticky; top: 0; };
+                @include oddeven(#fff, #f6f6f6);
+            }
+        }
+        &-center {
+            border-right: 4px solid $accent;
+        }
+        &-right {
+            max-width: 296px;
+            min-width: 296px;
+            border-right: 4px solid $accent;
+            .block { 
+                padding: 15px; border-bottom: 3px solid #e6e6e6; 
+                @include oddeven(#fff, #f6f6f6);
+                &__elem { min-height: 240px; max-height: 240px; min-width: 240px; }
+            }
+        }
+    }
+}
+
+// END CONTENT
+
+// START FOOTER
+.footer {
+    background: $accent;
+    padding: 25px 20px;
+    height: 100px;
+    &__copyright {
+        color: $white;
+    }
+    &__btn {
+        float: right;
+        &-save {
+            color: $accent;
+            margin-right: 3px;
+        }
+        &-back {
+            color: $white;
+        }        
+        i {
+            padding-right: 6px;
+            font-size: 1.3em;
+        }
+    }
+
+}
+// END FOOTER
+
+// End
+.vh-100{
+    height: calc(100vh - 201px) !important;
+}
+
+
+// MEDIA 
+@include media-breakpoint-down(md) { 
+    .main {
+        padding: 0px;
+    }
+    .aside {
+		min-width: 100%;
+		max-width: 100%;
+		-webkit-transition: all .3s;
+		-o-transition: all .3s;
+		transition: all .3s;
+		position: absolute;
+		background: $asidebg;
+		z-index: 1;
+        text-align: center;
+        @include box-shadow(none);
+	}	
+	.aside.active {
+		margin-left: -1024px;
+	}
+	.wrap__content {
+		margin-right: 0px;
+    }
+    .wrap::before, .wrap::after {
+		z-index: 0; 
+	}
+}
+
+@include media-breakpoint-down(xs) { 
+    .navbar-brand {
+        // font-size: 24px !important;
+        font-size: 7vw !important
+    }
+    .footer {
+        text-align: center;
+        padding: 5px;
+        &__btn { 
+            float: none;
+            margin: 15px 15px 0px 15px;
+        }
+        &__copyright {
+            padding: 5px;
+        }
+    }
+    .vh-100{
+        height: calc(100vh - 200px) !important;
+    }
+}
+
+// IE11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+    .main {
+        padding: 1px 0px 0px 0px;
+    }
+    .media { 
+        @include one() { position: fixed; top: 101px !important; };
+        padding: 16px 20px !important; 
+    }
+    .media:nth-child(2) {
+        margin-top:80px;
+    }
+    aside {
+        position: relative;
+    }
+}
+

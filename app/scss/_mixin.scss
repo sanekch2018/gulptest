@@ -1,0 +1,15 @@
+//
+@mixin oddeven($odd,$even){
+    &:nth-child(odd) {
+        background: $odd;
+    }
+    &:nth-child(even) {
+        background: $even;
+    }
+}
+// 
+@mixin one() {
+    &:first-of-type {
+      @content
+    }
+}

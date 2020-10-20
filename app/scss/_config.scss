@@ -1,0 +1,88 @@
+// COLORS
+$accent: #7e00ff;
+$white: #fff;
+$asidebg: #7000e0;
+$wrapbg: #e6e6e6;
+// TEXT
+$fontsize: 16px; 
+$textcolor: #3c3c3c;
+$opensans: OpenSans, sans-serif; // Roboto Font Family
+
+// Bootstrap
+$colors: (
+	"white": $white,
+	"purple": $accent
+);
+
+$theme-colors: (
+  "white": $white,
+  "purple": $accent
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 497px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px
+) !default;
+
+// setting-bootstrap
+$enable-shadows: true;
+$enable-gradients: true;
+$component-active-bg: $accent;
+
+// setting-FontAwesome
+$fa-font-path: "../fonts/FontAwesome";
+
+// IMPORT 
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'node_modules/font-awesome/scss/font-awesome.scss';
+
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		// font-display: swap; // Uncomment to initially display system fonts
+		src: local($fname), url($furl) format('woff2');
+	}
+}
+
+@include font('OpenSans', normal, 400, '../fonts/opensans-regular-webfont.woff2');
+
+
+// STYLES
+a {
+	color: #fff;
+}
+a:hover {
+	color: #e6e6e6;
+}
+button:focus {
+	outline: none;
+}
+::-webkit-scrollbar { 
+    width: 0px; 
+	background: transparent;
+}
+.overflow-auto {
+	scrollbar-width: none;
+}
+html {
+	-ms-overflow-style: none; 
+}
+body {
+	font-family: $opensans;
+	font-size: $fontsize;
+	font-weight: 400;
+	min-width: 320px;
+	position: relative;
+    line-height: 1.3;
+	overflow-x: hidden;
+	color: $textcolor;
+	background: #7000e0;
+}
