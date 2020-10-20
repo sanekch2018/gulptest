@@ -1,7 +1,4 @@
 # gulptest
-
-<h2>Как использовать OptimizedHTML</h2>
-
 <ol>
 	<li>Установите Node Modules: <strong>npm i</strong>;</li>
 	<li>Запустите шаблон командой: <strong>gulp</strong>.</li>
