@@ -1,4 +1,10 @@
 # gulptest
-Install Node Modules: npm i;
-Запуск командой: gulp;
-Сборка проекта: gulp build;
+
+<h2>Как использовать OptimizedHTML</h2>
+
+<ol>
+	<li>Установите Node Modules: <strong>npm i</strong>;</li>
+	<li>Запустите шаблон командой: <strong>gulp</strong>.</li>
+  <li>Сборка проекта:<strong>gulp build</strong>.</li>
+</ol>
+
